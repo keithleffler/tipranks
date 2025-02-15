@@ -19,7 +19,7 @@ EXPERT_TYPES = [
 
 class TipRanks:
 	def __init__(self, email: str, password: str) -> None:
-		self._base_url: str = "https://mobile.tipranks.com"
+		self._base_url: str = "https://www.tipranks.com"
 		self._session: requests.sessions.Session = requests.Session()
 
 		self.login(email=email, password=password)
@@ -47,8 +47,10 @@ class TipRanks:
 
 		if login:
 			return response.status_code
-
-		return response.json()
+		try:
+			return response.json()
+		except :
+			return response
 
 	def login(self, email: str, password: str) -> None:
 		status_code = self.__request(
@@ -174,6 +176,12 @@ class TipRanks:
 			}
 		)
 
+	def get_portfolio(self):
+		return self.__request(
+			method="GET",
+			endpoint='/api/v2/portfolio'
+		)
+
 	def top_analyst_stocks(self) -> dict:
 		"""
 		Returns the current recommended stocks. The list is
@@ -260,5 +268,11 @@ class TipRanks:
 		a given ticker.
 		"""
 		data = self.get_news_sentiment(ticker)
+
+		return data
+
+	def portfolio(self):
+
+		data = self.get_portfolio()
 
 		return data
