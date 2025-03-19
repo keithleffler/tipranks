@@ -1,9 +1,8 @@
-from tipranks.client import TrClient
 import time
 
 
 class Stocks():
-    def __init__(self, client: TrClient):
+    def __init__(self, client):
         self.client = client
 
     def get_news_sentiment(self, ticker: str) -> list:

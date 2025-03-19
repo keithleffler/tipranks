@@ -1,1 +1,1 @@
-from client import TrClient
+from .client import TrClient

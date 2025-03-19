@@ -1,6 +1,5 @@
 from tipranks.errors import (
     TipRanksStatusCodeError,
-    TipRanksArgumentError,
     TipRanksRequestError
 )
 from typing import Optional, Any
@@ -13,9 +12,7 @@ class TrClient:
 
         self.login(email=email, password=password)
 
-    def request(
-            self, method: str, endpoint: str, params: Optional[dict] = None, json: Optional[dict] = None, login: Optional[bool] = None
-    ) -> Any:
+    def request(self, method: str, endpoint: str, params: Optional[dict] = None, json: Optional[dict] = None, login: Optional[bool] = None) -> Any:
         try:
             response = self._session.request(
                 method=method.upper(),

@@ -9,7 +9,7 @@ class Experts():
     def get_top_experts(self, expert_type: str) -> list:
         # expertType ="analyst"
         # numExperts = <number>
-        # period = "month","quarter","year","twoYears"
+        # period = "month","quarter","year","twoYears"l
         # benchmark = "none", "snp500","sector"
         # sector: "Services","Industrialgoods","consumergoods","Utilities","Healthcare","Materials","Technology","Financial"
         # country = "us"

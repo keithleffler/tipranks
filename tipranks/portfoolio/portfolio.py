@@ -1,8 +1,6 @@
-from tipranks.client import TrClient
-
 
 class Portfolio():
-    def __init__(self, client:TrClient):
+    def __init__(self, client):
         self.client = client
 
     def get_portfolio(self):

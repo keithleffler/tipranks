@@ -1,12 +1,11 @@
-from tipranks.client import TrClient
 
 import time
-class Screener():
-    def __init__(self, client: TrClient):
+class StockScreener():
+    def __init__(self, client):
         self.client = client
 
     def get_top_smart_score_stocks(self) -> list:
-        return self.__request(
+        return self.client.request(
             method="GET",
             endpoint="/api/Screener/GetStocks/",
             params={
