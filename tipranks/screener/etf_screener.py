@@ -4,8 +4,8 @@ class ETFParams():
 
     def __init__(self):
         self.sortBy = SortBy.smart_score.value
-        self.sortDir = SortDir.ascending.value
-        self.page = 2
+        self.sortDir = SortDir.descending.value
+        self.page = 1
         self.pageSize = 50
         self.country = "us"
         self.method = "screenerStocks"
@@ -18,8 +18,9 @@ class ETFParams():
     def screenerParams(self):
         params = self.__dict__
         # params['tipranksScore[]'] = self.tipranksScore
-        params['tipranksScore[]'] = [ScoreCategory.out_perform,ScoreCategory.above_avg]
+        params['tipranksScore[]'] = [ScoreCategory.out_perform.value,ScoreCategory.above_avg.value]
         params['exchange[]'] = ["xnas","xnys","arcx","xase","bats"]
+        return params
 
 class EtfScreener():
     def __init__(self, client: TrClient):
