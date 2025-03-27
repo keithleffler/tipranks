@@ -1,7 +1,7 @@
 import unittest
 import boto3
 
-from tipranks import TipRanks
+from tipranks.client import TrClient
 
 
 class MyTestCase(unittest.TestCase):
@@ -13,9 +13,12 @@ class MyTestCase(unittest.TestCase):
             password = ssm_client.get_parameter(Name='/side-hustle/tipranks/password', WithDecryption=True)['Parameter'][
                 'Value']
             try:
-                self.client = TipRanks(email=email, password=password)
+                self.client = TrClient(email=email, password=password)
             except Exception as err:
                 pass
+
+    def test_something(self):
+        pass
 
 
 
