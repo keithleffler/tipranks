@@ -24,9 +24,11 @@
       "options": {}
     },
     "build": {
-      "executor": "@nxlv/python:build",
+      "executor": "@nxlv/python:run-commands",
       "outputs": ["{projectRoot}/dist"],
       "options": {
+        "command": "../../../scripts/nx_python_target.sh build",
+        "cwd": "src/libs/tipranks_lib",
         "outputPath": "src/libs/tipranks_lib/dist",
         "publish": false,
         "lockedVersions": true,
