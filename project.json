@@ -37,8 +37,10 @@
       "cache": true
     },
     "install": {
-      "executor": "@nxlv/python:install",
+      "executor": "@nxlv/python:run-commands",
       "options": {
+        "command": "../../../scripts/nx_python_target.sh install",
+        "cwd": "src/libs/tipranks_lib",
         "silent": false,
         "args": "",
         "cacheDir": ".cache/pypoetry",
@@ -63,7 +65,7 @@
         "{workspaceRoot}/coverage/libs/tipranks"
       ],
       "options": {
-        "command": "poetry run pytest tests/",
+        "command": "../../../scripts/nx_python_target.sh test",
         "cwd": "src/libs/tipranks_lib"
       },
       "cache": true
